@@ -196,13 +196,13 @@ function doRename(thisInput) {
     //判断名字是否重复
     sceneList.forEach(function (eachScene) {
         if (eachScene.index != nameIndex) {
-            if(eachScene.name == newName){
+            if (eachScene.name == newName) {
                 doFlag = false;
                 return false;
             }
         }
     });
-    if(doFlag){
+    if (doFlag) {
         krpano.get("scene").renameItem(oldName, newName);
         if (currentSceneIndex == nameIndex) {
             krpano.set("xml.scene", newName);
@@ -231,7 +231,7 @@ function doRename(thisInput) {
         });
         $("#isEdited").text('保存*');
         thisInput.prev().text(newName);
-    }else{
+    } else {
         thisInput.val(oldName);
         alert("名字重复");
     }

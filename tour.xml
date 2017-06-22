@@ -1,10 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><krpano title="Virtual Tour" version="1.19">
+﻿<krpano version="1.19" title="Virtual Tour">
 
-	<include url="http://static.dejionline.com/360/skin/dejionline.xml"/>
+	<include url="skin/vtourskin.xml" />
 
 
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
-	
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               gyro="true"
+	               webvr="true"
+	               webvr_gyro_keeplookingdirection="false"
+	               webvr_prev_next_hotspots="true"
+	               littleplanetintro="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="false"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext="loading..."
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
 
 	<!--
 	    For an alternative skin design either change the <skin_settings> values 
@@ -19,165 +68,91 @@
 
 
 	<!-- startup action - load the first scene -->
-	<action autorun="onstart" name="startup">if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[2].name); );loadscene(get(startscene), null, MERGE);if(startactions !== null, startactions() );</action>
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
 
 
 	
-	<scene havevrimage="true" heading="" lat="" lng="" name="右厅内区" onstart="" thumburl="panos/1.tiles/thumb.jpg" title="1">
+	<scene name="scene_1" title="1" onstart="" havevrimage="true" thumburl="panos/1.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view fov="110" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="-236.70784512498406" limitview="auto" vlookat="2.3411563014800842"/>
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/1.tiles/preview.jpg"/>
+		<preview url="panos/1.tiles/preview.jpg" />
 
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="3840" tiledimagewidth="3840">
-				<cube url="panos/1.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/1.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/1.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/1.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/1.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
-			</level>
-		</image>
-
-		<image if="webvr.isenabled">
-			<cube url="panos/1.tiles/vr/pano_%s.jpg"/>
-		</image>
-
-		<!-- place your scene hotspots here -->
-
-	<hotspot ath="-64.55255757786972" atv="23.17493520048876" linkedscene="右区门头" name="spot1" style="hotspot_2" title="右区门头"/><autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/><hotspot ath="-64.14370254129614" atv="22.86455062208917" linkedscene="右厅外区" name="spot1" style="hotspot_2" title="右厅外区"/><hotspot ath="-21.509028532725665" atv="11.35112371460217" linkedscene="中厅右区" name="spot2" style="hotspot_2" title="中厅右区"/></scene>
-
-	<scene havevrimage="true" heading="" lat="" lng="" name="右厅外区" onstart="" thumburl="panos/2.tiles/thumb.jpg" title="2">
-
-		<view fov="110" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="-103.37646011508512" limitview="auto" vlookat="-0.8885065693579871"/>
-
-		<preview url="panos/2.tiles/preview.jpg"/>
-
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="4096" tiledimagewidth="4096">
-				<cube url="panos/2.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/2.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/2.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/1.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
 
 		<image if="webvr.isenabled">
-			<cube url="panos/2.tiles/vr/pano_%s.jpg"/>
+			<cube url="panos/1.tiles/vr/pano_%s.jpg" />
 		</image>
 
 		<!-- place your scene hotspots here -->
 
-	<hotspot ath="-103.97572853285004" atv="4.985232681510778" dive="true" linkedscene="右厅内区" name="spot1" style="hotspot_8" title="右厅内区"/><hotspot ath="-103.97572853285004" atv="4.985232681510778" linkedscene="右厅内区" name="spot1" style="hotspot_2" title="右厅内区"/><hotspot ath="-175.9375995297565" atv="1.7686130550680783" linkedscene="中厅右区" name="spot2" style="hotspot_2" title="中厅右区"/><autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/></scene>
+	</scene>
 
-	<scene havevrimage="true" heading="" lat="" lng="" name="门头" onstart="" thumburl="panos/3.tiles/thumb.jpg" title="3">
+	<scene name="scene_2" title="2" onstart="" havevrimage="true" thumburl="panos/2.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view fov="110" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="167.7264398700781" limitview="auto" vlookat="0.422550120851784"/>
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/3.tiles/preview.jpg"/>
+		<preview url="panos/2.tiles/preview.jpg" />
 
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="4096" tiledimagewidth="4096">
-				<cube url="panos/3.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/2.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/3.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/2.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/3.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/2.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
 
 		<image if="webvr.isenabled">
-			<cube url="panos/3.tiles/vr/pano_%s.jpg"/>
+			<cube url="panos/2.tiles/vr/pano_%s.jpg" />
 		</image>
 
 		<!-- place your scene hotspots here -->
 
-	<hotspot ath="-125.9961886126633" atv="12.257637471863227" linkedscene="中厅左区" name="spot1" style="hotspot_2" title="中厅左区"/><autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/></scene>
+	</scene>
 
-	<scene havevrimage="true" heading="" lat="" lng="" name="包袋区" onstart="" thumburl="panos/4.tiles/thumb.jpg" title="4">
+	<scene name="scene_3" title="3" onstart="" havevrimage="true" thumburl="panos/3.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view fov="113.59999999999991" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="-536.4968944645295" limitview="auto" vlookat="-0.82038998132231"/>
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/4.tiles/preview.jpg"/>
+		<preview url="panos/3.tiles/preview.jpg" />
 
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="3840" tiledimagewidth="3840">
-				<cube url="panos/4.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="panos/3.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/4.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/3.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
 			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/4.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/3.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
 
 		<image if="webvr.isenabled">
-			<cube url="panos/4.tiles/vr/pano_%s.jpg"/>
+			<cube url="panos/3.tiles/vr/pano_%s.jpg" />
 		</image>
 
 		<!-- place your scene hotspots here -->
 
-	<hotspot ath="-55.73910264084492" atv="22.05633327807915" linkedscene="中厅右区" name="spot1" style="hotspot_2" title="中厅右区"/><hotspot ath="-55.73910264084492" atv="22.05633327807915" linkedscene="中厅右区" name="spot1" style="hotspot_2" title="中厅右区"/><hotspot ath="64.79890548186034" atv="20.32759178893764" linkedscene="中厅左区" name="spot2" style="hotspot_2" title="中厅左区"/><autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/></scene>
-
-	<scene havevrimage="true" heading="" lat="" lng="" name="中厅右区" onstart="" thumburl="panos/5.tiles/thumb.jpg" title="5">
-
-		<view fov="110" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="87.19706602035647" limitview="auto" vlookat="9.063083732188968"/>
-
-		<preview url="panos/5.tiles/preview.jpg"/>
-
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="3840" tiledimagewidth="3840">
-				<cube url="panos/5.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/5.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/5.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
-			</level>
-		</image>
-
-		<image if="webvr.isenabled">
-			<cube url="panos/5.tiles/vr/pano_%s.jpg"/>
-		</image>
-
-		<!-- place your scene hotspots here -->
-
-	<autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/><hotspot ath="-133.25189949793628" atv="13.899800169961111" linkedscene="右区门头" name="spot3" style="hotspot_2" title="右区门头"/><hotspot ath="122.57767441396584" atv="23.387344162676463" linkedscene="包袋区" name="spot1" style="hotspot_2" title="包袋区"/><hotspot ath="32.8428491028846" atv="6.757689656854964" linkedscene="左区门头" name="spot4" style="hotspot_2" title="左区门头"/><hotspot ath="42.59531418263617" atv="18.796471759766796" linkedscene="中厅左区" name="spot2" style="hotspot_2" title="中厅左区"/><hotspot ath="122.57767441396584" atv="23.387344162676463" linkedscene="包袋区" name="spot1" style="hotspot_2" title="包袋区"/><hotspot ath="-133.25189949793628" atv="13.899800169961111" linkedscene="右厅外区" name="spot3" style="hotspot_2" title="右厅外区"/><hotspot ath="32.8428491028846" atv="6.757689656854964" linkedscene="门头" name="spot4" style="hotspot_2" title="门头"/></scene>
-
-	<scene havevrimage="true" heading="" lat="" lng="" name="中厅左区" onstart="" thumburl="panos/6.tiles/thumb.jpg" title="6">
-
-		<view fov="110" fovmax="130" fovmin="70" fovtype="MFOV" hlookat="247.60711533661615" limitview="auto" vlookat="5.040727969080298"/>
-
-		<preview url="panos/6.tiles/preview.jpg"/>
-
-		<image if="!webvr.isenabled" multires="true" tilesize="512" type="CUBE">
-			<level tiledimageheight="3840" tiledimagewidth="3840">
-				<cube url="panos/6.tiles/%s/l3/%v/l3_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="2048" tiledimagewidth="2048">
-				<cube url="panos/6.tiles/%s/l2/%v/l2_%s_%v_%h.jpg"/>
-			</level>
-			<level tiledimageheight="1024" tiledimagewidth="1024">
-				<cube url="panos/6.tiles/%s/l1/%v/l1_%s_%v_%h.jpg"/>
-			</level>
-		</image>
-
-		<image if="webvr.isenabled">
-			<cube url="panos/6.tiles/vr/pano_%s.jpg"/>
-		</image>
-
-		<!-- place your scene hotspots here -->
-
-	<autorotate accel="1.0" enabled="true" horizon="0.0" speed="5.0" waittime="1.5"/><hotspot ath="-76.87429024074095" atv="13.857649168297618" linkedscene="中厅右区" name="spot2" style="hotspot_2" title="中厅右区"/><hotspot ath="-149.14188169596622" atv="18.728244577413403" linkedscene="包袋区" name="spot1" style="hotspot_2" title="包袋区"/><hotspot ath="-76.87429024074095" atv="13.857649168297618" linkedscene="中厅右区" name="spot2" style="hotspot_2" title="中厅右区"/><hotspot ath="109.61585017271472" atv="14.520256105582986" linkedscene="门头" name="spot3" style="hotspot_2" title="门头"/></scene>
+	</scene>
 
 
-<skin_settings bgsound="" gyro="true" littleplanetintro="false" logo="http://image.cdn.dejionline.com/brandside/359/logo.jpg?t=1472034123334"/></krpano>
+</krpano>
