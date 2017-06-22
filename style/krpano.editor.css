@@ -337,7 +337,7 @@ a {
 .scene-li-button {
     width: 30px;
     height: 30px;
-    background: rgba(255, 255, 255, 0) url("http://static.dejionline.com/img/krpano.modify.png");
+    background: rgba(255, 255, 255, 0) url("../img/krpano.modify.png");
     border: 0;
     float: right;
     cursor: pointer;
@@ -347,7 +347,7 @@ a {
     width: 30px;
     height: 30px;
     float: right;
-    background: #292827 url("http://static.dejionline.com/img/krpano.home.png");
+    background: #292827 url("../img/krpano.home.png");
     border-radius: 50%;
     text-align: center;
     line-height: 30px;

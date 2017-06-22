@@ -72,6 +72,8 @@
 		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
 		loadscene(get(startscene), null, MERGE);
 		if(startactions !== null, startactions() );
+		<!-- 加载完成最后一步执行编辑页onready函数，如果在编辑页加载开始写小行星未加载完成，页面数据会有问题 -->
+		js('onready');
 	</action>
 
 
