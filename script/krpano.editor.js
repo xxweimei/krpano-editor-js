@@ -9,8 +9,6 @@ var movePx = 0;
 var moveFastPx = 0;
 var moveIntervalId;
 var listIntervalId;
-var listPx = 0;
-var listFastPx = 0;
 var canDownMove = false;
 var canLeftMove = false;
 var canRightMove = false;
@@ -105,8 +103,6 @@ function onready() {
     });
     hotSpotHTML = template('tplHotSpotList', dataHotSpotList);
     document.getElementById('hotSpotList').innerHTML = hotSpotHTML;
-    //热点动画
-    listIntervalId = setInterval(spotAutoGif, 30);
 
     //右侧数值初始化
     $("#waitTime").val(krpano.get("autorotate.waittime"));
@@ -496,24 +492,6 @@ function showAddHotSpot() {
     $("#selectStyleTitle").addClass("progress-title-on");
     $("#goToSceneTitle").removeClass("progress-title-on");
     $("#writeTitleTitle").removeClass("progress-title-on");
-}
-
-function spotAutoGif() {
-    listPx -= 32;
-    listFastPx -= 32;
-    if (listFastPx == -128 * 10) {
-        listFastPx = 0;
-    }
-    if (listPx == -128 * 25) {
-        listPx = 0;
-    }
-    $(".hot-spot-img").each(function () {
-        if ($(this).attr("spot-style") == 'hotspot_3') {
-            $(this).css("background-position", "0 " + listFastPx + "px");
-        } else {
-            $(this).css("background-position", "0 " + listPx + "px");
-        }
-    });
 }
 
 function addSpotAutoGif() {
