@@ -7,3 +7,6 @@
 + index_editor.html为编辑页
 + index.html为结果页
 + 页面公用tour.xml,编辑页保存时调用后台接口操作tour.xml
+
+## 说明
++ 近期有空，会回顾此项目并做相应的整理，同时会上传一个配套的nodejs的本地操作文件的后台。
