@@ -1,0 +1,37 @@
+<krpano>
+	
+	<!--
+		fps (frames per second) xml plugin
+		- this plugin shows the current average rendering frame-rate 
+		- krpano 1.18
+	-->
+	
+	<action name="fps_install" autorun="preinit">
+		delayedcall(1.0,
+			addlayer(fps_display);
+			set(layer[fps_display].keep, true);
+			set(layer[fps_display].align, 'lefttop');
+			if(device.mobile AND stagescale LT 1.0,
+				<!-- a larger font for mobiles -->
+				set(layer[fps_display].css, 'font-size:24px; color:#FFFFFF;');
+			  ,
+				<!-- and a smaller font for desktop and tablets -->
+				set(layer[fps_display].css, 'font-size:12px; color:#FFFFFF;');
+			  );
+			set(layer[fps_display].textshadow, 0.01);
+			set(layer[fps_display].background, false);
+			set(layer[fps_display].parent, STAGE);
+			set(layer[fps_display].enabled, false);
+			set(layer[fps_display].url, '%SWFPATH%/plugins/textfield.swf');
+			fps_update();
+		);
+	</action>
+	
+	<action name="fps_update">
+		copy(tmp, display.currentfps);
+		roundval(tmp);
+		txtadd(layer[fps_display].html, 'FPS: ', get(tmp));
+		delayedcall(0.5, fps_update());
+	</action>
+	
+</krpano>

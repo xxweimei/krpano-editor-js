@@ -1,0 +1,16 @@
+{
+  "name": "krpano-editor-js",
+  "version": "1.0.0",
+  "description": "krpano editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xxweimei",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "xml2js": "^0.4.17"
+  }
+}
