@@ -96,7 +96,8 @@ function onready() {
     var dataHotSpotList = {list: []};
     //覆盖原热点选中事件,添加热点点击移动事件
     krpano.get("hotspot").getArray().forEach(function (oldHotSpot) {
-        if (oldHotSpot.name != "vr_cursor") {
+        if (oldHotSpot.name !== 'vr_cursor' && oldHotSpot.name !== 'webvr_prev_scene'
+            && oldHotSpot.name !== 'webvr_next_scene') {
             dataHotSpotList.list.push(oldHotSpot);
             hotSpotInitEvent(oldHotSpot.name);
         }
