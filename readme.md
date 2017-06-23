@@ -1,6 +1,7 @@
 # krpano-editor-js
 ## 简介
 krpano官方提供的编辑功能都是通过内嵌flash实现的，对于不懂flash开发的同学不太友好。于是就做了一个jquery版本的编辑器。
+[demo编辑页](https://xxweimei.github.io/static/krpano/tour_editor.html)（无后台无法保存）
 ## 食用说明书
 + clone项目到本地
 + 安装nodejs（已装的同学跳过）
