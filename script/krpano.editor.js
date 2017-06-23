@@ -449,7 +449,7 @@ function getQueryString(url) {
 }
 
 function save() {
-    if ($("#isEdited").text() == '保存') {
+    if ($("#isEdited").text() === '保存') {
         return;
     }
     var postData = JSON.stringify(sceneList);
@@ -461,7 +461,7 @@ function save() {
         data: postData,
         success: function (data) {
             alert(data);
-            if (data == "保存成功") {
+            if (data === "保存成功") {
                 $("#isEdited").text('保存');
             }
         },
