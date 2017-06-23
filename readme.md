@@ -1,12 +1,15 @@
-# krpano_editor_html
+# krpano-editor-js
 ## 简介
-网上几乎所有的krpano全景编辑后台都是html内嵌flash实现的，于是就做了一个jquery版本的编辑器。图片由于版权问题先删除，后续会补官方提供的demo图片
-## demo
+krpano官方提供的编辑功能都是通过内嵌flash实现的，对于不懂flash开发的同学不太友好。于是就做了一个jquery版本的编辑器。
+## 食用说明书
 + clone项目到本地
-+ 在项目根目录执行 python -m SimpleHTTPServer 80（也可用其他静态服务器，这个简单省事）
-+ index_editor.html为编辑页
-+ index.html为结果页
-+ 页面公用tour.xml,编辑页保存时调用后台接口操作tour.xml
-
-## 说明
-+ 近期有空，会回顾此项目并做相应的整理，同时会上传一个配套的nodejs的本地操作文件的后台。
++ 安装nodejs（已装的同学跳过）
++ 在项目根目录执行 `npm install` 安装相关依赖包
++ 在项目根目录执行 `node app.js` 启动项目
++ 访问编辑页——http://127.0.0.1:3000/tour_editor.html
++ 访问结果页——http://127.0.0.1:3000/tour.html
+## 关于项目的一些说明
++ 使用简单的nodejs express提供静态资源服务器功能，以及提供保存接口实现本地tour.xml文件的修改，具体参考app.js文件
++ 项目核心难点是对krpano的各种html api的理解，具体参考官网文档即可
++ 项目css以及jquery写法不要太在意，毕竟不是专业的
++ 有bug可以提issue，或者联系QQ793271105，当然有不懂的同学也可以沟通，有时间一定耐心解答
