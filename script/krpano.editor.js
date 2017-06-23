@@ -140,18 +140,19 @@ function changeScene(index) {
     krpano.call("loadscene(" + krpano.get("scene").getItem(index).name + ")");
     //当前存储对象展示
     var currentScene = sceneList[index];
-    if (currentScene.initH != null) krpano.set("view.hlookat", currentScene.initH);
-    if (currentScene.initV != null) krpano.set("view.vlookat", currentScene.initV);
-    if (currentScene.fov != null) krpano.set("view.fov", currentScene.fov);
-    if (currentScene.fovmax != null) krpano.set("view.fovmax", currentScene.fovmax);
-    if (currentScene.fovmin != null) krpano.set("view.fovmin", currentScene.fovmin);
-    if (currentScene.autorotate != null) {
+    if (currentScene.initH !== null) krpano.set("view.hlookat", currentScene.initH);
+    if (currentScene.initV !== null) krpano.set("view.vlookat", currentScene.initV);
+    if (currentScene.fov !== null) krpano.set("view.fov", currentScene.fov);
+    if (currentScene.fovmax !== null) krpano.set("view.fovmax", currentScene.fovmax);
+    if (currentScene.fovmin !== null) krpano.set("view.fovmin", currentScene.fovmin);
+    if (currentScene.autorotate !== null) {
         krpano.set("autorotate.enabled", currentScene.autorotate.enabled);
         krpano.set("autorotate.waittime", currentScene.autorotate.waitTime);
     }
-    if (currentScene.hotSpots != null) {
+    if (currentScene.hotSpots !== null) {
         krpano.get("hotspot").getArray().forEach(function (everySpot) {
-            if (everySpot.name != "vr_cursor") {
+            if (everySpot.name !== "vr_cursor" && everySpot.name !== 'webvr_prev_scene'
+                && everySpot.name !== 'webvr_next_scene') {
                 krpano.call("removehotspot(" + everySpot.name + ")");
             }
         });
@@ -414,7 +415,8 @@ function updateHotSpotData() {
     //修改全局变量
     var hotSpotData = [];
     krpano.get("hotspot").getArray().forEach(function (everySpot) {
-        if (everySpot.name != "vr_cursor") {
+        if (everySpot.name !== "vr_cursor" && everySpot.name !== 'webvr_prev_scene'
+            && everySpot.name !== 'webvr_next_scene') {
             dataHotSpotList.list.push(everySpot);
             var hotSpot = {};
             hotSpot.ath = everySpot.ath.toString();
@@ -478,7 +480,6 @@ function autoMove() {
 
 //添加热点模块
 function showAddHotSpot() {
-    moveIntervalId = setInterval(addSpotAutoGif, 30);
     $(".hot-style").removeClass("hot-style-on");
     $(".hot-style").first().addClass("hot-style-on");
     toAddHotSpot.style = $(".hot-style").first().attr("name");
@@ -493,24 +494,6 @@ function showAddHotSpot() {
     $("#selectStyleTitle").addClass("progress-title-on");
     $("#goToSceneTitle").removeClass("progress-title-on");
     $("#writeTitleTitle").removeClass("progress-title-on");
-}
-
-function addSpotAutoGif() {
-    movePx -= 64;
-    moveFastPx -= 64;
-    if (moveFastPx == -128 * 10) {
-        moveFastPx = 0;
-    }
-    if (movePx == -128 * 25) {
-        movePx = 0;
-    }
-    $(".hot-style").each(function () {
-        if ($(this).attr("name") == 'hotspot_3') {
-            $(this).css("background-position", "0 " + moveFastPx + "px");
-        } else {
-            $(this).css("background-position", "0 " + movePx + "px");
-        }
-    });
 }
 
 function hideAddHotSpot() {

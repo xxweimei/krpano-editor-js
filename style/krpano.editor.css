@@ -444,7 +444,7 @@ a {
     cursor: pointer;
     margin: 7px;
     width: 64px;
-    height: 64px;
+    height: 56px;
     background-size: cover;
     float: left;
 }
