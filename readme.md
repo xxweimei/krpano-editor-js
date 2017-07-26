@@ -2,9 +2,9 @@
 ## 简介
 krpano官方提供的编辑功能都是通过内嵌flash实现的，对于不懂flash开发的同学不太友好。于是就做了一个jquery版本的编辑器。如果觉得此项目对您有用，请不要吝啬您的star哦。
 
-[demo编辑页](https://xxweimei.github.io/static/krpano/tour_editor.html)（无后台无法保存）
+> [demo编辑页](https://xxweimei.github.io/static/krpano/tour_editor.html)（无后台无法保存）
 
-> [vuejs版本正在开发中,点击查看](https://github.com/xxweimei/krpano-editor-vuejs)
+> [vuejs版本正在开发中](https://github.com/xxweimei/krpano-editor-vuejs)
 
 ## 食用说明书
 + clone项目到本地
