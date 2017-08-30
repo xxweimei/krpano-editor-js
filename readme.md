@@ -17,5 +17,5 @@ krpano官方提供的编辑功能都是通过内嵌flash实现的，对于不懂
 + 使用简单的nodejs express提供静态资源服务器功能，以及提供保存接口实现本地tour.xml文件的修改，具体参考app.js文件
 + 项目核心难点是对krpano的各种html api的理解，具体参考官网文档即可
 + 项目css以及jquery写法不要太在意，毕竟不是专业的
-+ 有bug可以提issue，有不懂的同学也可以在issue里面沟通
++ 有bug可以提issue，有不懂的同学也可以在issue里面沟通，或者添加Q群144518198
 + 感谢Satan（QQ昵称）同学提供的全景图片
