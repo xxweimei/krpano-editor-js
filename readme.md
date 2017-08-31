@@ -19,3 +19,7 @@ krpano官方提供的编辑功能都是通过内嵌flash实现的，对于不懂
 + 项目css以及jquery写法不要太在意，毕竟不是专业的
 + 有bug可以提issue，有不懂的同学也可以在issue里面沟通，或者添加Q群144518198
 + 感谢Satan（QQ昵称）同学提供的全景图片
+## 捐赠
++ 如果觉得项目不错，请作者喝杯咖啡吧
+<br>
+<img src="https://xxweimei.github.io/blog/img/alipay.jpg" width="267" height="318"></img>
